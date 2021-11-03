@@ -28,3 +28,13 @@
 	font-size: 5rem;
 	color: black;
 }
+
+//small devices
+@media (max-width: 480px) {
+	.value {
+		width: 70%;
+	}
+	.isearch {
+		font-size: 3rem;
+	}
+}
