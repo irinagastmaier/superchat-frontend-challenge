@@ -26,7 +26,15 @@
 	border: none;
 	border-radius: 0 0.2rem 0.2rem 0;
 	font-size: 5rem;
-	color: black;
+	color: rgb(21, 22, 22);
+}
+
+.isearch,
+.value {
+	&:hover {
+		background-color: rgb(21, 22, 22);
+		color: #f1f1f1;
+	}
 }
 
 //small devices
