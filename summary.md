@@ -1,5 +1,10 @@
 # Content Summary and useful links
 
+## App Logic
+
+find the username -> show all the repos from that specific user -> pick the repo -> select icon and color and generate link and post it on twitter.
+Open card from the generated link.
+
 ## User.js
 
 username and repository name

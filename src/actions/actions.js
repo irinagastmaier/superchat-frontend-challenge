@@ -62,7 +62,10 @@ export function fetchUserData(user) {
 		dispatch(getUserData());
 		return axios
 			.get(`https://api.github.com/users/${user}`)
-			.then(res => dispatch(getUserDataSuccess(res.data)))
+			.then(res => {
+				dispatch(getUserDataSuccess(res.data));
+				console.log(res.data);
+			})
 			.catch(err => dispatch(getUserDataErr(err)));
 	};
 }
@@ -72,7 +75,10 @@ function fetchRepos(user) {
 		dispatch(getRepos());
 		return axios
 			.get(`https://api.github.com/users/${user}/repos`)
-			.then(res => dispatch(getReposSuccess(res.data)))
+			.then(res => {
+				dispatch(getReposSuccess(res.data));
+				console.log(res.data);
+			})
 			.catch(err => dispatch(getReposErr(err)));
 	};
 }
