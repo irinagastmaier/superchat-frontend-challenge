@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { searchUser, fetchUserAndRepos } from './actions/actions';
 import Home from './components/Home';
-import PickRepo from './components/PickRepo';
+import PickRepo from './components/Repo/PickRepo';
 import styles from './styles/App.module.scss';
 import { BiSearchAlt } from 'react-icons/bi';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
@@ -20,6 +21,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
+				<Navbar />
 				<div className="container">
 					<form onSubmit={searchUserData} className={styles.search}>
 						<input

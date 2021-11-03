@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function Home() {
-    return (
-        <div className="container">
-           THis is home 
-        </div>
-    )
+	return (
+		<div className="container">
+			<p>Here will display the app feautures</p>
+		</div>
+	);
 }
