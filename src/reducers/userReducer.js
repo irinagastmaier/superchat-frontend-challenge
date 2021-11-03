@@ -1,4 +1,4 @@
-const initialState = { user: '', repos: [], loading: false, error: false };
+const initialState = { user: '', repos: [], data: {}, loading: false, error: false };
 
 export const userReducer = (state = initialState, action) => {
 	switch (action.type) {

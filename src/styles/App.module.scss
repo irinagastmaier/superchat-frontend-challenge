@@ -1,0 +1,30 @@
+.search {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+	justify-content: center;
+	margin: 2rem auto;
+	border-radius: 0.2rem;
+	box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+	background-color: rgb(38, 46, 56);
+	width: 95%;
+	padding: 2rem;
+}
+
+.value {
+	padding: 3rem;
+	font-weight: 500;
+	font-size: 1rem;
+	border-radius: 0.2rem 0 0 0.2rem;
+	border: none;
+	background-color: #f0f7fa;
+	text-align: center;
+}
+
+.isearch {
+	background-color: #f0f7fa;
+	border: none;
+	border-radius: 0 0.2rem 0.2rem 0;
+	font-size: 5rem;
+	color: black;
+}

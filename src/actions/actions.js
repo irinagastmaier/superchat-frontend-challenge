@@ -17,9 +17,10 @@ export function searchUser(user) {
 	};
 }
 
-export function getUserData() {
+export function getUserData(data) {
 	return {
 		type: GET_USERDATA,
+		payload: data,
 	};
 }
 
@@ -64,7 +65,7 @@ export function fetchUserData(user) {
 			.get(`https://api.github.com/users/${user}`)
 			.then(res => {
 				dispatch(getUserDataSuccess(res.data));
-				console.log(res.data);
+				localStorage.setItem('data', JSON.stringify(res.data));
 			})
 			.catch(err => dispatch(getUserDataErr(err)));
 	};
@@ -77,7 +78,8 @@ function fetchRepos(user) {
 			.get(`https://api.github.com/users/${user}/repos`)
 			.then(res => {
 				dispatch(getReposSuccess(res.data));
-				console.log(res.data);
+				localStorage.setItem('repos', JSON.stringify(res.data));
+				window.location.href = '/repos';
 			})
 			.catch(err => dispatch(getReposErr(err)));
 	};
