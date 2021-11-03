@@ -1,4 +1,4 @@
-export default function Search({ searchUserData, searchValue, setSearchValue, placeholder }) {
+const Search = ({ searchUserData, searchValue, setSearchValue, placeholder }) => {
 	return (
 		<div>
 			<form onSubmit={searchUserData}>
@@ -14,4 +14,6 @@ export default function Search({ searchUserData, searchValue, setSearchValue, pl
 			</form>
 		</div>
 	);
-}
+};
+
+export default Search;
