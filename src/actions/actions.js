@@ -75,7 +75,7 @@ function fetchRepos(user) {
 	return dispatch => {
 		dispatch(getRepos());
 		return axios
-			.get(`https://api.github.com/users/${user}/repos`)
+			.get(`https://api.github.com/users/${user}/repos?page=1&per_page=100`)
 			.then(res => {
 				dispatch(getReposSuccess(res.data));
 				localStorage.setItem('repos', JSON.stringify(res.data));

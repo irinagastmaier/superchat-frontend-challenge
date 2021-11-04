@@ -5,12 +5,11 @@ export default function PickRepo() {
 	let repos = localStorage.getItem('repos');
 	repos = JSON.parse(repos);
 	const [selectedRepo, setSelectedRepo] = useState('');
-	console.log(selectedRepo);
-	const names = [];
 
-	repos.forEach(repo => {
+	const names = [];
+	repos.forEach((repo, i) => {
 		names.push(
-			<label htmlFor={repo.name} className={styles.item}>
+			<label htmlFor={repo.name} className={styles.item} key={i}>
 				<input
 					style={{
 						display: 'inline',
@@ -21,12 +20,17 @@ export default function PickRepo() {
 					id={repo.name}
 					name="repo"
 					value={repo.name}
-					onClick={() => setSelectedRepo(repo.name)}
+					onClick={() => handleRepo(repo.name)}
 				/>
 				{repo.name}
 			</label>
 		);
 	});
+	const handleRepo = name => {
+		setSelectedRepo(name);
+		localStorage.setItem('repo', JSON.stringify(selectedRepo));
+		window.location.href = '/icons';
+	};
 
 	return (
 		<div className="container">
