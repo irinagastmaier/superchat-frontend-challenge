@@ -7,7 +7,7 @@ import PickRepo from './components/Repo/PickRepo';
 import styles from './styles/App.module.scss';
 import { BiSearchAlt } from 'react-icons/bi';
 import Navbar from './components/Navbar/Navbar';
-import PickIcon from './components/Icons/PickIcon';
+import PickIcon from './components/Icons&Color/PickIcon';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');

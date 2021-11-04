@@ -1,0 +1,53 @@
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 95%;
+  margin: 3rem auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+          box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  background-color: #697689;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.value {
+  padding: 3rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0.2rem 0 0 0.2rem;
+  border: none;
+  background-color: #f0f7fa;
+  text-align: center;
+}
+
+.isearch {
+  background-color: #f0f7fa;
+  border: none;
+  border-radius: 0 0.2rem 0.2rem 0;
+  font-size: 5rem;
+  color: #151616;
+}
+
+.isearch:hover,
+.value:hover {
+  background-color: #151616;
+  color: #f1f1f1;
+}
+
+@media (max-width: 480px) {
+  .value {
+    width: 70%;
+  }
+  .isearch {
+    font-size: 3rem;
+  }
+}
+/*# sourceMappingURL=App.module.css.map */

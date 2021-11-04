@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 95%;
+  margin: 3rem auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+          box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  background-color: #697689;
+  border-radius: 0.5rem;
+}
+
+.row .item {
+  margin: 0.75rem;
+  color: #f1f1f1;
+  font-weight: 600;
+}
+
+.row input {
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+
+.border {
+  border: 0.1rem solid #fafafa;
+  border-radius: 0.5rem;
+  width: 35%;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .border {
+    min-width: 10rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
