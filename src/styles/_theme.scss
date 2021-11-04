@@ -42,11 +42,37 @@ body {
 }
 
 .twitter {
+	margin-top: 2rem;
 	color: #1f9bf0;
+	font-size: 5rem;
+	&:hover {
+		color: white;
+	}
 }
+
+.tweet {
+	color: #1f9bf0;
+	font-size: 2rem;
+}
+
+.title {
+	padding-top: 2rem;
+	color: #fafafa;
+	width: 100%;
+}
+
+.logo {
+	color: #d9e3f0;
+}
+
+.bc-black {
+	background-color: black;
+}
+
 
 @media (max-width: 480px) {
 	.border {
 		min-width: 10rem;
 	}
 }
+

@@ -9,10 +9,19 @@ export default function Share() {
 	const urlToString = url.toString();
 
 	return (
-		<div>
-			<a className="twitter-share-button" href={urlToString}>
-				<BsTwitter className="twitter" onClick={() => localStorage.clear()} />
-			</a>
+		<div className="container">
+			<div className="row">
+				<h1 className="title">
+					{' '}
+					Share your <span className="logo">GitHub Link</span>
+				</h1>
+				<div className="border bc-black">
+					<a className="twitter-share-button" href={urlToString}>
+						<BsTwitter className="twitter" />
+					</a>
+					<p className="tweet">Tweet</p>
+				</div>
+			</div>
 		</div>
 	);
 }

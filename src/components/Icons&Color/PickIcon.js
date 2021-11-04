@@ -16,7 +16,7 @@ export default function PickIcon() {
 	const handleIconColor = e => {
 		e.preventDefault();
 		const cor = color.substring(1);
-		console.log(cor)
+		console.log(cor);
 		const values = [cor, icon];
 		console.log(values);
 		localStorage.setItem('values', JSON.stringify(values));
@@ -26,7 +26,7 @@ export default function PickIcon() {
 	return (
 		<div className="container">
 			<form className="row d-center" onSubmit={handleIconColor}>
-				<h1 className={styles.title}>Choose your favorite Icon and Color</h1>
+				<h1 className="title">Choose your favorite Icon and Color</h1>
 				<div className="border">
 					<label htmlFor="github" className="item">
 						<input
