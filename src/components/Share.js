@@ -5,7 +5,7 @@ export default function Share() {
 	let values = localStorage.getItem('values');
 	values = JSON.parse(values);
 	const params = values.toString();
-	const url = `https://twitter.com/intent/tweet?text=http://localhost:3000/${params}`;
+	const url = `https://twitter.com/intent/tweet?text=http://localhost:3000/card/${params}`;
 	const urlToString = url.toString();
 
 	return (

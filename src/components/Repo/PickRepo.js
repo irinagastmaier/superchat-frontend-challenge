@@ -4,7 +4,21 @@ import styles from './Repo.module.scss';
 export default function PickRepo() {
 	let repos = localStorage.getItem('repos');
 	repos = JSON.parse(repos);
-	const [selectedRepo, setSelectedRepo] = useState('');
+	const [selectedRepo, setSelectedRepo] = useState(null);
+
+	let timer;
+	const handleTimer = () => {
+		timer = setTimeout(() => {
+			window.location.href = '/icons';
+		}, 3000);
+		return () => clearTimeout(timer);
+	};
+
+	const handleRepo = name => {
+		setSelectedRepo(name);
+		localStorage.setItem('repo', JSON.stringify(selectedRepo));
+		handleTimer();
+	};
 
 	const names = [];
 	repos.forEach((repo, i) => {
@@ -21,11 +35,6 @@ export default function PickRepo() {
 			</label>
 		);
 	});
-	const handleRepo = name => {
-		setSelectedRepo(name);
-		localStorage.setItem('repo', JSON.stringify(selectedRepo));
-		window.location.href = '/icons';
-	};
 
 	return (
 		<div className="container">

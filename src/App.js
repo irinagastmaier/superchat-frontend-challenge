@@ -45,7 +45,7 @@ function App() {
 					<Route path="/repos" component={PickRepo} />
 					<Route path="/icons" component={PickIcon} />
 					<Route path="/share" component={Share} />
-					<Route path="/:values" component={Card} />
+					<Route path="/card/:values" component={Card} />
 				</Switch>
 			</div>
 		</Router>
