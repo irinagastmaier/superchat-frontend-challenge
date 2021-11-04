@@ -8,6 +8,8 @@ import styles from './styles/App.module.scss';
 import { BiSearchAlt } from 'react-icons/bi';
 import Navbar from './components/Navbar/Navbar';
 import PickIcon from './components/Icons&Color/PickIcon';
+import Card from './components/Card';
+import Share from './components/Share';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
@@ -42,6 +44,8 @@ function App() {
 					</Route>
 					<Route path="/repos" component={PickRepo} />
 					<Route path="/icons" component={PickIcon} />
+					<Route path="/share" component={Share} />
+					<Route path="/:values" component={Card} />
 				</Switch>
 			</div>
 		</Router>

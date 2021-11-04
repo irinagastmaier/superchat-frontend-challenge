@@ -15,9 +15,12 @@ export default function PickIcon() {
 
 	const handleIconColor = e => {
 		e.preventDefault();
-		const values = [color, icon];
+		const cor = color.substring(1);
+		console.log(cor)
+		const values = [cor, icon];
 		console.log(values);
 		localStorage.setItem('values', JSON.stringify(values));
+		window.location.href = '/share';
 	};
 
 	return (
@@ -35,20 +38,20 @@ export default function PickIcon() {
 						/>
 						<AiFillGithub className={styles.icon} value="github" />
 					</label>
-					<label htmlFor="github" className="item">
+					<label htmlFor="github2" className="item">
 						<input
 							type="radio"
-							id="github"
+							id="github2"
 							name="icon"
 							value="github2"
 							onClick={e => setIcon(e.target.value)}
 						/>
 						<FaGithubAlt className={styles.icon} value="github2" />
 					</label>
-					<label htmlFor="github" className="item">
+					<label htmlFor="github3" className="item">
 						<input
 							type="radio"
-							id="github"
+							id="github3"
 							name="icon"
 							value="github3"
 							onClick={e => setIcon(e.target.value)}
