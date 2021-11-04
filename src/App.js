@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { searchUser, fetchUserAndRepos } from './actions/actions';
 import Home from './components/Home';
 import PickRepo from './components/Repo/PickRepo';
@@ -13,12 +13,45 @@ import Share from './components/Share';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
+	const [isEmpty, setIsEmpty] = useState(false);
 	const dispatch = useDispatch();
 
 	const searchUserData = e => {
 		e.preventDefault();
 		dispatch(searchUser(searchValue));
 		dispatch(fetchUserAndRepos(searchValue));
+	};
+
+	//onload we are reading,what data we have in localStorage
+	useEffect(() => {
+		const localData = JSON.parse(localStorage.getItem('values'));
+		console.log(localData);
+		if (localData === null) {
+			setIsEmpty(true);
+		}
+	}, []);
+
+	const RedirectIsEmpty = ({ component: Component, isEmpty, path, ...rest }) => {
+		return (
+			<Route
+				path={path}
+				{...rest}
+				render={props => {
+					return isEmpty ? (
+						<Component {...props} />
+					) : (
+						<Redirect
+							to={{
+								pathname: '/',
+								state: {
+									from: props.location,
+								},
+							}}
+						/>
+					);
+				}}
+			/>
+		);
 	};
 
 	return (
@@ -44,7 +77,7 @@ function App() {
 					</Route>
 					<Route path="/repos" component={PickRepo} />
 					<Route path="/icons" component={PickIcon} />
-					<Route path="/share" component={Share} />
+					<RedirectIsEmpty path="/share" component={Share} isEmpty={isEmpty} />
 					<Route path="/:values" component={Card} />
 				</Switch>
 			</div>
