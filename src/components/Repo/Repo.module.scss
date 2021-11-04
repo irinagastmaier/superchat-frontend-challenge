@@ -1,20 +1,5 @@
-.row {
-	display: flex;
-	flex-flow: row wrap;
-	width: 95%;
-	margin: 3rem auto;
-	justify-content: center;
-	background-color: rgb(38, 46, 56);
-	border-radius: 0.5rem;
-	.item {
-		margin: 0.75rem;
-		color: #f1f1f1;
-		font-weight: 600;
-	}
-}
-
 .title {
 	width: 100%;
 	padding-top: 1.5rem;
-	color: white;
+	color: #fafafa;
 }

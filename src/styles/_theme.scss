@@ -5,5 +5,26 @@
 }
 
 body {
-	background-color: #f1f1f1;
+	background-color: rgb(238, 238, 238);
+}
+
+.row {
+	display: flex;
+	flex-flow: row wrap;
+	width: 95%;
+	margin: 3rem auto;
+	justify-content: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+	background-color: #697689;
+	border-radius: 0.5rem;
+	.item {
+		margin: 0.75rem;
+		color: #f1f1f1;
+		font-weight: 600;
+	}
+	input {
+		display: inline;
+		width: 20px;
+		height: 20px;
+	}
 }

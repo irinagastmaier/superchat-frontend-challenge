@@ -9,13 +9,8 @@ export default function PickRepo() {
 	const names = [];
 	repos.forEach((repo, i) => {
 		names.push(
-			<label htmlFor={repo.name} className={styles.item} key={i}>
+			<label htmlFor={repo.name} className="item" key={i}>
 				<input
-					style={{
-						display: 'inline',
-						width: '20px',
-						height: '20px',
-					}}
 					type="radio"
 					id={repo.name}
 					name="repo"
@@ -34,7 +29,7 @@ export default function PickRepo() {
 
 	return (
 		<div className="container">
-			<form className={styles.row}>
+			<form className="row">
 				<h1 className={styles.title}>Choose Repository</h1>
 				{names}
 			</form>
