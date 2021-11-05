@@ -8,12 +8,12 @@ export default function Card() {
 	const array = values.split(',');
 	const color = '#' + array[1];
 	const user = array[0];
-	const repoPath = 'challenge-latana';
+	const repo = 'challenge-latana';
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(fetchRepo(user, repoPath));
+		dispatch(fetchRepo(user, repo));
 	}, []);
 
 	//`http://localhost:3000/${user}/${repo}/${icon}/${color}`

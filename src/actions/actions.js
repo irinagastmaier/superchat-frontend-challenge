@@ -115,21 +115,21 @@ export function fetchUserAndRepos(user) {
 	};
 }
 
-export function fetchRepo(user, repoPath) {
+export function fetchRepo(user, repo) {
 	return dispatch => {
-		dispatch(getRepos());
+		dispatch(getRepo());
 		console.log(process.env.REACT_APP_TOKEN);
 		return axios
-			.get(`https://api.github.com/users/${user}/repos/${user}/${repoPath}`, {
+			.get(`https://api.github.com/repos/${user}/${repo}`, {
 				headers: {
 					Accept: 'application/vnd.github.v3+json',
-					Authorization: `${"token " + process.env.REACT_APP_TOKEN}`,
+					Authorization: `${'token ' + process.env.REACT_APP_TOKEN}`,
 				},
 			})
 			.then(res => {
 				dispatch(getRepoSuccess(res.data));
 				localStorage.setItem('repo', JSON.stringify(res.data));
 			})
-			.catch(err => dispatch(getRepoErr(err), console.log(process.env.REACT_APP_TOKEN)));
+			.catch(err => dispatch(getRepoErr(err)));
 	};
 }
