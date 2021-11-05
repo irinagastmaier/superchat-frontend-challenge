@@ -2,14 +2,10 @@
 
 ## App Logic
 
-find the username -> show all the repos from that specific user -> pick the repo -> select icon and color and generate link and post it on twitter.
-Open card from the generated link.
+find the username -> show all the repos from that specific user and pick the repo -> select icon and color -> generate link and post it on twitter ->open card from the generated link.
 
-## User.js
-
-username and repository name
 select an icon and a color: [React Icon](https://react-icons.github.io/react-icons/)
-get a generated link crazygithublinks.com/r/da39a3 and post it on Twitter : [Twitter Dev](https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview)
+post it on Twitter : [Twitter Dev](https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview)
 
 ## Card.js
 
