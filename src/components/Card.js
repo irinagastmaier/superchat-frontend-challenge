@@ -14,21 +14,26 @@ export default function Card() {
 	const dispatch = useDispatch();
 	const { data } = useSelector(state => state.repoReducer);
 	console.log(data);
+	const dataToArray = [data];
+	console.log(dataToArray);
 
-	// let info;
-	// useEffect(async () => {
-	// 	dispatch(fetchRepo(user, repo));
-	// 	await (info = localStorage.getItem('info'));
-	// 	info = JSON.parse(info);
-	// });
+	useEffect(() => {
+		dispatch(fetchRepo(user, repo));
+	}, []);
 
 	return (
 		<div className="container">
 			<div className="row" style={{ backgroundColor: color }}>
-				<h1>card</h1>
-				{/* {info.forEach(value => {
-					<h1>{value.name}</h1>;
-				})} */}
+				{data === undefined ? (
+					<div>Loading... </div>
+				) : (
+					dataToArray &&
+					dataToArray.map((info, i) => (
+						<div key={i}>
+							<h1>{info.id}</h1>
+						</div>
+					))
+				)}
 			</div>
 		</div>
 	);
