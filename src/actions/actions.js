@@ -128,6 +128,8 @@ export function fetchRepo(user, repo) {
 			.then(res => {
 				dispatch(getRepoSuccess(res.data));
 				localStorage.setItem('info', JSON.stringify(res.data));
+				// let info = localStorage.getItem('info');
+				// info = JSON.parse(info);
 			})
 			.catch(err => dispatch(getRepoErr(err)));
 	};

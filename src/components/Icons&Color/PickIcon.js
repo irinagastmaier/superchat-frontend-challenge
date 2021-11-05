@@ -8,10 +8,9 @@ import ColorPicker from './ColorPicker';
 export default function PickIcon() {
 	let data = localStorage.getItem('data');
 	data = JSON.parse(data);
-	let userdata = localStorage.getItem('userdata');
-	userdata = JSON.parse(userdata);
-	console.log(userdata)
-	const user = data.login
+	let repo = localStorage.getItem('repo');
+	repo = JSON.parse(repo);
+	const user = data.login;
 	const [icon, setIcon] = useState('');
 	const [color, setColor] = useState('#b3e0e5');
 
@@ -23,7 +22,7 @@ export default function PickIcon() {
 		e.preventDefault();
 		const cor = color.substring(1);
 		console.log(cor);
-		const values = [user,cor, icon];
+		const values = [user, repo, cor, icon];
 		console.log(values);
 		localStorage.setItem('values', JSON.stringify(values));
 		window.location.href = '/share';

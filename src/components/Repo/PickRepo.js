@@ -10,14 +10,16 @@ export default function PickRepo() {
 	const handleTimer = () => {
 		timer = setTimeout(() => {
 			window.location.href = '/icons';
-		}, 2000);
+		}, 1000);
 		return () => clearTimeout(timer);
 	};
 
 	const handleRepo = name => {
 		setSelectedRepo(name);
-		localStorage.setItem('repo', JSON.stringify(selectedRepo));
-		handleTimer();
+		if (selectedRepo !== null) {
+			localStorage.setItem('repo', JSON.stringify(selectedRepo));
+			handleTimer();
+		}
 	};
 
 	const names = [];
