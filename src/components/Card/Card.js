@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchContributors, fetchRepo } from '../../actions/actions';
 //icons
-import { AiFillGithub, AiFillStar } from 'react-icons/ai';
+import { AiFillGithub, AiOutlineStar } from 'react-icons/ai';
 import { FaGithubAlt } from 'react-icons/fa';
 import { RiGithubLine } from 'react-icons/ri';
 //styles
@@ -52,7 +52,7 @@ export default function Card() {
 									<h2>{info.name}</h2>
 									<p>{info.description}</p>
 									<p>
-										<AiFillStar /> = {info.stargazers_count}
+										<AiOutlineStar className={styles.star} /> <span className={styles.num}>= {info.stargazers_count}</span>
 									</p>
 									<p></p>
 								</div>
