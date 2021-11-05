@@ -8,7 +8,10 @@ export default function Card() {
 	const array = values.split(',');
 	const color = '#' + array[1];
 	const user = array[0];
-	const repo = 'challenge-latana';
+	const repo = 'kitacare';
+
+	const info = localStorage.getItem('info');
+//	console.log(info);
 
 	const dispatch = useDispatch();
 
