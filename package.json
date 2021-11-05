@@ -16,7 +16,7 @@
     "react-scripts": "4.0.3",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.0",
-    "request": "^2.79.0",
+    "request": "^2.88.0",
     "sass": "^1.43.4",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
@@ -46,9 +46,7 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.8",
     "dotenv": "^10.0.0",
-    "postcss": "^7.0.39",
     "prettier": "2.4.1"
   }
 }
