@@ -10,6 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import PickIcon from './components/Icons&Color/PickIcon';
 import Card from './components/Card';
 import Share from './components/Share';
+import NotFound from './components/NotFound';
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
@@ -46,6 +47,7 @@ function App() {
 					<Route path="/icons" component={PickIcon} />
 					<Route path="/share" component={Share} />
 					<Route path="/card/:values" component={Card} />
+					<Route component={NotFound} />
 				</Switch>
 			</div>
 		</Router>

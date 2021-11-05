@@ -68,7 +68,7 @@ export default function PickIcon() {
 					<ColorPicker onChange={handleColor} value={color} />
 				</div>
 				<div className="w-100">
-					<button type="submit" className={styles.btn}>
+					<button type="submit" className="btn">
 						Next
 					</button>
 				</div>
