@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchContributors, fetchRepo } from '../../actions/actions';
 //icons
-import { AiFillGithub } from 'react-icons/ai';
+import { AiFillGithub, AiFillStar } from 'react-icons/ai';
 import { FaGithubAlt } from 'react-icons/fa';
 import { RiGithubLine } from 'react-icons/ri';
 //styles
@@ -38,20 +38,24 @@ export default function Card() {
 
 	return (
 		<div className="container">
-			<div className="row" style={{ backgroundColor: color }}>
+			<div className="row">
 				{data === undefined ? (
 					<div>Loading... </div>
 				) : (
 					dataToArray &&
 					dataToArray.map((info, i) => (
-						<div key={i}>
-							<h1>{info.owner.login}</h1>
-							{icon}
-							<div>
-								<h2>{info.name}</h2>
-								<p>{info.description}</p>
-								<p>{info.stargazers_count}</p>
-								<p></p>
+						<div key={i} style={{ backgroundColor: color, opacity: '0.8' }} className={styles.container}>
+							<h1 className={styles.title}>{info.owner.login}</h1>
+							<div className={styles.item}>
+								<div className={icon}>{icon}</div>
+								<div>
+									<h2>{info.name}</h2>
+									<p>{info.description}</p>
+									<p>
+										<AiFillStar /> = {info.stargazers_count}
+									</p>
+									<p></p>
+								</div>
 							</div>
 						</div>
 					))
@@ -61,9 +65,5 @@ export default function Card() {
 	);
 }
 
-// the repository author
-// icon selected by the link creator
-// title and description of the repository
-// the number of stars
 // the top 10 contributors
 // a button to star the repository

@@ -1,0 +1,25 @@
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	width: 95%;
+	margin: 2rem;
+	border-radius: 0.5rem;
+}
+
+.title {
+	width: 100%;
+	margin: 2rem auto;
+	color: black;
+}
+
+.icon {
+	font-size: 5rem;
+	color: #697689;
+	margin: 0.5rem;
+}
+
+.item {
+	background-color: #c7cfdb93;
+	width: 100%;
+}
