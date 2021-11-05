@@ -14,14 +14,22 @@ const Container = styled.span`
 		width: auto;
 		height: auto;
 		cursor: pointer;
-		&::-webkit-color-swatch-wrapper,
+
 		&::-moz-color-swatch {
 			padding: 0;
 			width: 0.875rem;
 			height: 0.875rem;
 		}
-		&::-webkit-color-swatch,
 		&::-moz-color-swatch {
+			border: none;
+			padding: 0;
+		}
+		&::-webkit-color-swatch-wrapper {
+			padding: 0;
+			width: 0.875rem;
+			height: 0.875rem;
+		}
+		&::-webkit-color-swatch {
 			border: none;
 			padding: 0;
 		}
