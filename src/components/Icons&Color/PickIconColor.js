@@ -23,7 +23,6 @@ export default function PickIconColor() {
 		const cor = color.substring(1);
 		console.log(cor);
 		const values = [user, repo, cor, icon];
-		console.log(values);
 		localStorage.setItem('values', JSON.stringify(values));
 		window.location.href = '/share';
 	};

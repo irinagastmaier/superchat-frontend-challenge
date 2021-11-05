@@ -19,12 +19,13 @@ export default function Card() {
 
 	const dispatch = useDispatch();
 	const { data } = useSelector(state => state.repoReducer);
-	const dataToArray = [data];
 	console.log(data);
+	const dataToArray = [data];
+	console.log(dataToArray);
 
 	useEffect(() => {
 		dispatch(fetchRepo(user, repo));
-		dispatch(fetchContributors(user, repo));
+		//dispatch(fetchContributors(user, repo));
 	}, []);
 
 	if (icon === 'github') {
@@ -38,7 +39,7 @@ export default function Card() {
 	return (
 		<div className="container">
 			<div className="row" style={{ backgroundColor: color }}>
-				{dataToArray === undefined ? (
+				{data === undefined ? (
 					<div>Loading... </div>
 				) : (
 					dataToArray &&

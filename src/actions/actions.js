@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 import {
+	GET_CONTRIBUTORS,
+	GET_CONTRIBUTORS_ERROR,
+	GET_CONTRIBUTORS_SUCCESS,
 	GET_REPO,
 	GET_REPOS,
 	GET_REPOS_ERROR,
@@ -80,6 +83,26 @@ function getRepoErr(err) {
 	};
 }
 
+function getContributors() {
+	return {
+		type: GET_CONTRIBUTORS,
+	};
+}
+
+function getContributorsSuccess(contributors) {
+	return {
+		type: GET_CONTRIBUTORS_SUCCESS,
+		payload: contributors,
+	};
+}
+
+function getContributorsErr(err) {
+	return {
+		type: GET_CONTRIBUTORS_ERROR,
+		err,
+	};
+}
+
 export function fetchUserData(user) {
 	return dispatch => {
 		dispatch(getUserData());
@@ -92,6 +115,8 @@ export function fetchUserData(user) {
 			.catch(err => dispatch(getUserDataErr(err)));
 	};
 }
+
+//App.js
 
 function fetchRepos(user) {
 	return dispatch => {
@@ -115,6 +140,8 @@ export function fetchUserAndRepos(user) {
 	};
 }
 
+//Card.js
+
 export function fetchRepo(user, repo) {
 	return dispatch => {
 		dispatch(getRepo());
@@ -128,9 +155,25 @@ export function fetchRepo(user, repo) {
 			.then(res => {
 				dispatch(getRepoSuccess(res.data));
 				localStorage.setItem('info', JSON.stringify(res.data));
-				// let info = localStorage.getItem('info');
-				// info = JSON.parse(info);
 			})
 			.catch(err => dispatch(getRepoErr(err)));
+	};
+}
+
+export function fetchContributors(user, repo) {
+	return dispatch => {
+		dispatch(getContributors());
+		return axios
+			.get(`https://api.github.com/repos/${user}/${repo}/contributors`, {
+				headers: {
+					Accept: 'application/vnd.github.v3+json',
+					Authorization: `${'Bearer ' + process.env.REACT_APP_TOKEN}`,
+				},
+			})
+			.then(res => {
+				dispatch(getRepoSuccess(res.data));
+				localStorage.setItem('contributors', JSON.stringify(res.data));
+			})
+			.catch(err => dispatch(getContributorsErr(err)));
 	};
 }
