@@ -1,9 +1,12 @@
 import axios from 'axios';
 
 import {
+	GET_REPO,
 	GET_REPOS,
 	GET_REPOS_ERROR,
 	GET_REPOS_SUCCESS,
+	GET_REPO_ERROR,
+	GET_REPO_SUCCESS,
 	GET_USERDATA,
 	GET_USERDATA_ERROR,
 	GET_USERDATA_SUCCESS,
@@ -17,10 +20,9 @@ export function searchUser(user) {
 	};
 }
 
-export function getUserData(data) {
+export function getUserData() {
 	return {
 		type: GET_USERDATA,
-		payload: data,
 	};
 }
 
@@ -58,6 +60,26 @@ function getReposErr(err) {
 	};
 }
 
+function getRepo() {
+	return {
+		type: GET_REPO,
+	};
+}
+
+function getRepoSuccess(repo) {
+	return {
+		type: GET_REPO_SUCCESS,
+		payload: repo,
+	};
+}
+
+function getRepoErr(err) {
+	return {
+		type: GET_REPO_ERROR,
+		err,
+	};
+}
+
 export function fetchUserData(user) {
 	return dispatch => {
 		dispatch(getUserData());
@@ -90,5 +112,24 @@ export function fetchUserAndRepos(user) {
 		return dispatch(fetchUserData(user)).then(() => {
 			return dispatch(fetchRepos(user));
 		});
+	};
+}
+
+export function fetchRepo(user, repoPath) {
+	return dispatch => {
+		dispatch(getRepos());
+		console.log(process.env.REACT_APP_TOKEN);
+		return axios
+			.get(`https://api.github.com/users/${user}/repos/${user}/${repoPath}`, {
+				headers: {
+					Accept: 'application/vnd.github.v3+json',
+					Authorization: `${"token " + process.env.REACT_APP_TOKEN}`,
+				},
+			})
+			.then(res => {
+				dispatch(getRepoSuccess(res.data));
+				localStorage.setItem('repo', JSON.stringify(res.data));
+			})
+			.catch(err => dispatch(getRepoErr(err), console.log(process.env.REACT_APP_TOKEN)));
 	};
 }

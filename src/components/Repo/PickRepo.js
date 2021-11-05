@@ -4,6 +4,7 @@ import styles from './Repo.module.scss';
 export default function PickRepo() {
 	let repos = localStorage.getItem('repos');
 	repos = JSON.parse(repos);
+	console.log(repos)
 	const [selectedRepo, setSelectedRepo] = useState(null);
 
 	let timer;

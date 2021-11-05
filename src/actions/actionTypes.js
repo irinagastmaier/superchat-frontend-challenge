@@ -5,3 +5,6 @@ export const GET_USERDATA_ERROR = 'GET_USERDATA_ERROR';
 export const GET_REPOS = 'GET_REPOS';
 export const GET_REPOS_SUCCESS = 'GET_REPOS_SUCCESS';
 export const GET_REPOS_ERROR = 'GET_REPOS_ERROR';
+export const GET_REPO = 'GET_REPO';
+export const GET_REPO_SUCCESS = 'GET_REPO_SUCCESS';
+export const GET_REPO_ERROR = 'GET_REPO_ERROR';
