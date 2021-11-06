@@ -14,7 +14,12 @@ import {
 	GET_USERDATA_ERROR,
 	GET_USERDATA_SUCCESS,
 	SEARCH_USER,
+	UPDATE_STAR,
+	UPDATE_STAR_ERROR,
+	UPDATE_STAR_SUCCESS,
 } from './actionTypes';
+
+//username, userdata and repository data
 
 export function searchUser(user) {
 	return {
@@ -83,6 +88,8 @@ function getRepoErr(err) {
 	};
 }
 
+//contributors
+
 function getContributors() {
 	return {
 		type: GET_CONTRIBUTORS,
@@ -103,6 +110,30 @@ function getContributorsErr(err) {
 	};
 }
 
+//star repository
+
+function updateStar() {
+	return {
+		type: UPDATE_STAR,
+	};
+}
+
+function updateStarSuccess(data) {
+	return {
+		type: UPDATE_STAR_SUCCESS,
+		payload: data,
+	};
+}
+
+function updateStarErr(err) {
+	return {
+		type: UPDATE_STAR_ERROR,
+		err,
+	};
+}
+
+//App.js
+
 export function fetchUserData(user) {
 	return dispatch => {
 		dispatch(getUserData());
@@ -115,8 +146,6 @@ export function fetchUserData(user) {
 			.catch(err => dispatch(getUserDataErr(err)));
 	};
 }
-
-//App.js
 
 function fetchRepos(user) {
 	return dispatch => {
@@ -177,3 +206,24 @@ export function fetchContributors(user, repo) {
 			.catch(err => dispatch(getContributorsErr(err)));
 	};
 }
+
+export const updateStarRepo = (user, repo) => async dispatch => {
+	try {
+		dispatch(updateStar());
+		const { data } = await axios.put(
+			`https://api.github.com/user/starred/${user}/${repo}`,
+			{ user },
+			{
+				headers: {
+					Accept: 'application/vnd.github.v3+json',
+					Authorization: `${'Bearer ' + process.env.REACT_APP_TOKEN}`,
+				},
+			}
+		);
+		dispatch(updateStarSuccess(data));
+		console.log(data);
+	} catch (err) {
+		console.log(err.message);
+		dispatch(updateStarErr(err));
+	}
+};

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchContributors, fetchRepo } from '../../actions/actions';
+import { fetchContributors, fetchRepo, updateStarRepo } from '../../actions/actions';
 import _ from 'lodash';
 //icons
-import { AiFillGithub, AiOutlineStar } from 'react-icons/ai';
+import { AiFillGithub, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { FaGithubAlt } from 'react-icons/fa';
 import { RiGithubLine } from 'react-icons/ri';
 //styles
@@ -50,6 +50,10 @@ export default function Card() {
 		<RiGithubLine className={styles.icon} value="github3" />;
 	}
 
+	const handleUpdate = () => {
+		dispatch(updateStarRepo(user, repo, {data: user}));
+	};
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -76,6 +80,9 @@ export default function Card() {
 					))
 				)}
 			</div>
+			<button type="submit" onClick={handleUpdate}>
+				<AiFillStar /> Repository
+			</button>
 		</div>
 	);
 }
