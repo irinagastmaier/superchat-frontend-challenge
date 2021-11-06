@@ -40,7 +40,7 @@ export default function PickRepo() {
 
 	return (
 		<div className="container">
-			<form className="row">
+			<form className="row p-2">
 				<h1 className={styles.title}>Choose Repository</h1>
 				{names}
 			</form>

@@ -36,9 +36,9 @@ export default function Card() {
 	const names = [];
 	chunckedLogin.map((login, i) => {
 		names.push(
-			<p key={i} className="w-100 item">
+			<span key={i} className={styles.names}>
 				{login + ''}
-			</p>
+			</span>
 		);
 	});
 
@@ -73,7 +73,7 @@ export default function Card() {
 										<AiOutlineStar className={styles.star} />{' '}
 										<span className={styles.num}>= {info.stargazers_count}</span>
 									</p>
-									Contributors: {names}
+									<p>Contributors: {names}</p>
 								</div>
 							</div>
 						</div>

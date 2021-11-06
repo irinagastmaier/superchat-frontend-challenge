@@ -11,7 +11,7 @@ body {
 .row {
 	display: flex;
 	flex-flow: row wrap;
-	width: 95%;
+	width: 50%;
 	margin: 3rem auto;
 	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
@@ -39,6 +39,10 @@ body {
 
 .w-100 {
 	width: 100%;
+}
+
+.p-2 {
+	padding-bottom: 2rem;
 }
 
 .twitter {
@@ -92,9 +96,12 @@ body {
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 810px) {
+	.row {
+		width: 95%;
+		margin: 2rem auto;
+	}
 	.border {
 		min-width: 10rem;
 	}
 }
-

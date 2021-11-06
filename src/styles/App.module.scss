@@ -1,11 +1,11 @@
 .search {
 	display: flex;
 	flex-flow: row wrap;
-	width: 95%;
+	width: 60%;
 	margin: 3rem auto;
 	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-	background-color:#697689;
+	background-color: #697689;
 	padding: 2rem;
 	border-radius: 0.5rem;
 }
@@ -36,10 +36,14 @@
 	}
 }
 
-//small devices
-@media (max-width: 480px) {
+//small devices + tablets
+@media (max-width: 810px) {
+	.search {
+		width: 95%;
+		margin: 2rem auto;
+	}
 	.value {
-		width: 70%;
+		width: 75%;
 	}
 	.isearch {
 		font-size: 3rem;
