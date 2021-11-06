@@ -89,10 +89,10 @@ function getContributors() {
 	};
 }
 
-function getContributorsSuccess(contributors) {
+function getContributorsSuccess(data) {
 	return {
 		type: GET_CONTRIBUTORS_SUCCESS,
-		payload: contributors,
+		payload: data,
 	};
 }
 
@@ -171,7 +171,7 @@ export function fetchContributors(user, repo) {
 				},
 			})
 			.then(res => {
-				dispatch(getRepoSuccess(res.data));
+				dispatch(getContributorsSuccess(res.data));
 				localStorage.setItem('contributors', JSON.stringify(res.data));
 			})
 			.catch(err => dispatch(getContributorsErr(err)));

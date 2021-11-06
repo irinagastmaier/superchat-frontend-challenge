@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchContributors, fetchRepo } from '../../actions/actions';
+import _ from 'lodash';
 //icons
 import { AiFillGithub, AiOutlineStar } from 'react-icons/ai';
 import { FaGithubAlt } from 'react-icons/fa';
@@ -18,13 +19,28 @@ export default function Card() {
 	let icon = array[3];
 
 	const dispatch = useDispatch();
+
 	const { data } = useSelector(state => state.repoReducer);
-	const dataToArray = [data];
+	const dataArray = [data];
+	const { loading } = useSelector(state => state.repoReducer);
+
+	const { contributors } = useSelector(state => state.repoReducer);
+	const login = _.map(contributors, 'login');
+	const chunckedLogin = _.chunk(login, 10);
 
 	useEffect(() => {
 		dispatch(fetchRepo(user, repo));
-		//dispatch(fetchContributors(user, repo));
+		dispatch(fetchContributors(user, repo));
 	}, []);
+
+	const names = [];
+	chunckedLogin.map((login, i) => {
+		names.push(
+			<p key={i} className="w-100 item">
+				{login + ''}
+			</p>
+		);
+	});
 
 	if (icon === 'github') {
 		icon = <AiFillGithub className={styles.icon} value="github" />;
@@ -40,8 +56,8 @@ export default function Card() {
 				{data === undefined ? (
 					<div>Loading... </div>
 				) : (
-					dataToArray &&
-					dataToArray.map((info, i) => (
+					loading === true &&
+					dataArray.map((info, i) => (
 						<div key={i} style={{ backgroundColor: color, opacity: '0.8' }} className={styles.container}>
 							<h1 className={styles.title}>{info.owner.login}</h1>
 							<div className={styles.item}>
@@ -50,9 +66,10 @@ export default function Card() {
 									<h2>{info.name}</h2>
 									<p>{info.description}</p>
 									<p>
-										<AiOutlineStar className={styles.star} /> <span className={styles.num}>= {info.stargazers_count}</span>
+										<AiOutlineStar className={styles.star} />{' '}
+										<span className={styles.num}>= {info.stargazers_count}</span>
 									</p>
-									<p></p>
+									Contributors: {names}
 								</div>
 							</div>
 						</div>
@@ -63,5 +80,4 @@ export default function Card() {
 	);
 }
 
-// the top 10 contributors
 // a button to star the repository
