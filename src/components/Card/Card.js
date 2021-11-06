@@ -19,9 +19,7 @@ export default function Card() {
 
 	const dispatch = useDispatch();
 	const { data } = useSelector(state => state.repoReducer);
-	console.log(data);
 	const dataToArray = [data];
-	console.log(dataToArray);
 
 	useEffect(() => {
 		dispatch(fetchRepo(user, repo));

@@ -12,7 +12,6 @@ export default function Share() {
 		<div className="container">
 			<div className="row">
 				<h1 className="title">
-					{' '}
 					Share your <span className="logo">GitHub Link</span>
 				</h1>
 				<div className="border bc-black">

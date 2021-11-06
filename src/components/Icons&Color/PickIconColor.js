@@ -21,7 +21,6 @@ export default function PickIconColor() {
 	const handleIconColor = e => {
 		e.preventDefault();
 		const cor = color.substring(1);
-		console.log(cor);
 		const values = [user, repo, cor, icon];
 		localStorage.setItem('values', JSON.stringify(values));
 		window.location.href = '/share';
