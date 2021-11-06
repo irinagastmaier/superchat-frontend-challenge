@@ -51,7 +51,7 @@ export default function Card() {
 	}
 
 	const handleUpdate = () => {
-		dispatch(updateStarRepo(user, repo, {data: user}));
+		dispatch(updateStarRepo(user, repo, { data: user }));
 	};
 
 	return (
@@ -79,12 +79,10 @@ export default function Card() {
 						</div>
 					))
 				)}
+				<button type="submit" onClick={handleUpdate} className="btn">
+					<AiFillStar /> Repository
+				</button>
 			</div>
-			<button type="submit" onClick={handleUpdate}>
-				<AiFillStar /> Repository
-			</button>
 		</div>
 	);
 }
-
-// a button to star the repository

@@ -221,7 +221,6 @@ export const updateStarRepo = (user, repo) => async dispatch => {
 			}
 		);
 		dispatch(updateStarSuccess(data));
-		console.log(data);
 	} catch (err) {
 		console.log(err.message);
 		dispatch(updateStarErr(err));
