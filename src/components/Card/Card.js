@@ -35,11 +35,7 @@ export default function Card() {
 
 	const names = [];
 	chunckedLogin.map((login, i) => {
-		names.push(
-			<span key={i} className={styles.names}>
-				{login + ''}
-			</span>
-		);
+		names.push(<span key={i}>{login + ''}</span>);
 	});
 
 	if (icon === 'github') {
@@ -63,17 +59,17 @@ export default function Card() {
 					loading === true &&
 					dataArray.map((info, i) => (
 						<div key={i} style={{ backgroundColor: color, opacity: '0.8' }} className={styles.container}>
-							<h1 className={styles.title}>{info.owner.login}</h1>
+							<h1 className={styles.title}>{info.name}</h1>
 							<div className={styles.item}>
 								<div className={icon}>{icon}</div>
 								<div>
-									<h2>{info.name}</h2>
+									<h2>{info.owner.login}</h2>
 									<p>{info.description}</p>
 									<p>
-										<AiOutlineStar className={styles.star} />{' '}
+										<AiOutlineStar className={styles.star} />
 										<span className={styles.num}>= {info.stargazers_count}</span>
 									</p>
-									<p>Contributors: {names}</p>
+									<p className={styles.names}>Contributors: {names}</p>
 								</div>
 							</div>
 						</div>
