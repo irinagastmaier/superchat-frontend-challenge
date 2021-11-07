@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { searchUser, fetchUserAndRepos } from './actions/actions';
-import Home from './components/Home';
 import PickRepo from './components/Repo/PickRepo';
 import styles from './styles/App.module.scss';
 import { BiSearchAlt } from 'react-icons/bi';
@@ -27,7 +26,7 @@ function App() {
 			<div className="App">
 				<Navbar />
 				<Switch>
-					<Route exact path="/" component={Home}>
+					<Route exact path="/">
 						<div className="container">
 							<form onSubmit={searchUserData} className={styles.search}>
 								<input
