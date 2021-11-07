@@ -35,7 +35,7 @@ export default function Card() {
 
 	const names = [];
 	chunckedLogin.map((login, i) => {
-		names.push(<span key={i}>{login + ''}</span>);
+		return names.push(<span key={i}>{login + ''}</span>);
 	});
 
 	if (icon === 'github') {
